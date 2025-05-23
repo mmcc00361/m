@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>전화응대 및 발권</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="auth" class="center-screen">
+    <div class="logo"><img src="좌우로고.png" alt="로고" /></div>
+    <h2>비밀번호를 입력하세요</h2>
+    <input id="pw" type="password" placeholder="비밀번호" />
+    <button onclick="checkPassword()">확인</button>
+    <p id="error" style="color:red;"></p>
+  </div>
+  <div id="container"></div>
+  <script src="main.js"></script>
+</body>
+</html>
