@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>비밀번호 인증</title>
+</head>
+<body style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh;">
+  <div class="logo" style="margin-bottom: 20px;">
+    <img src="좌우로고.png" alt="로고" style="height: 50px;" />
+  </div>
+  <h2>비밀번호를 입력하세요</h2>
+  <input type="password" id="pw" placeholder="비밀번호" style="padding: 10px; font-size: 16px; margin: 10px;" />
+  <button onclick="checkPassword()" style="padding: 10px 20px; font-size: 16px;">확인</button>
+  <p id="error" style="color: red;"></p>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById('pw').value;
+      if (input === "2600") {
+        fetch('main.html')
+          .then(res => res.text())
+          .then(html => {
+            document.open();
+            document.write(html);
+            document.close();
+          });
+      } else {
+        document.getElementById('error').innerText = "비밀번호가 틀렸습니다.";
+      }
+    }
+  </script>
+</body>
+</html>
