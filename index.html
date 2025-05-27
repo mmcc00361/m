@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html lang="ko" style="height:100%;">
+<head>
+<meta http-equiv="X-Frame-Options" content="deny">
+
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>비밀번호 인증</title>
+<style>
+@media (max-width: 767px) {
+  body {
+    padding: 20px;
+    font-size: 16px;
+  }
+  input#pw {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    font-size: 18px;
+    box-sizing: border-box;
+  }
+  button {
+    width: 100%;
+    max-width: 200px;
+    padding: 12px;
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}
+</style></head>
+<body style="height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+<div class="logo" style="margin-bottom:20px;">
+<img alt="로고" src="좌우로고.png" style="height:50px;"/>
+</div>
+<h2>[250525] 비밀번호를 입력하세요</h2>
+<input id="pw" placeholder="비밀번호" style="padding:10px; font-size:16px; margin:10px; border: 3px solid #FFC107; border-radius: 5px;" type="password"/>
+<button onclick="checkPassword()" style="padding:10px 20px; font-size:16px;">확인</button>
+<p id="error" style="color:red;"></p>
+<script>
+    function checkPassword() {
+      const input = document.getElementById('pw').value;
+      const hash = input.split('').map(c => c.charCodeAt(0) + 1).join('-');
+      if (hash === "51-55-49-49") {
+        sessionStorage.setItem("authenticated", "true");
+        const m = ['m','a','i','n','.','h','t','m','l'];
+        window.location.href = m.join('');
+
+      } else {
+        document.getElementById('error').innerText = "비밀번호가 틀렸습니다.";
+      }
+    }
+    </script>
+
+<script>
+  document.addEventListener('contextmenu', function (e) {
+    e.preventDefault();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === "F12" || 
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) || 
+        (e.ctrlKey && e.key === 'U')) {
+      e.preventDefault();
+    }
+  });
+</script>
+
+
+<script>
+  // 우클릭 방지
+  document.addEventListener("contextmenu", e => e.preventDefault());
+
+  // 단축키 방지
+  document.addEventListener("keydown", e => {
+    if (e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+        (e.ctrlKey && e.key === 'U')) {
+      e.preventDefault();
+    }
+  });
+
+  // DevTools 열림 감지 후 페이지 종료 시도
+  (function() {
+    const element = new Image();
+    Object.defineProperty(element, 'id', {
+      get: function() {
+        document.body.innerHTML = "<h1 style='color:red; text-align:center;'>개발자 도구 사용이 차단되었습니다.</h1>";
+        setTimeout(() => window.close(), 2000);
+      }
+    });
+    console.log(element);
+  })();
+</script>
+
+
+<script>
+  document.addEventListener("contextmenu", e => e.preventDefault());
+
+  document.addEventListener("keydown", e => {
+    if (e.key === "F12" ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+        (e.ctrlKey && e.key === 'U')) {
+      e.preventDefault();
+    }
+  });
+
+  (function() {
+    const element = new Image();
+    Object.defineProperty(element, 'id', {
+      get: function() {
+        document.body.innerHTML = "<h1 style='color:red; text-align:center;'>개발자 도구 사용이 차단되었습니다.</h1>";
+        setTimeout(() => window.close(), 2000);
+      }
+    });
+    console.log(element);
+  })();
+</script>
+
+</body>
+</html>
